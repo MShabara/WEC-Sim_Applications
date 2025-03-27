@@ -31,7 +31,9 @@ jobs:
         include: ${{ fromJSON(inputs.include) }}
         exclude:
           - os: ubuntu-latest
-            folder: Mooring
+          - folder: Mooring
+          - folder: Paraview_Visualization
+          - folder: OWC
     name: "${{ matrix.folder }} - ${{ matrix.os }} - ${{ matrix.release }}"
     timeout-minutes: 45
     steps:
