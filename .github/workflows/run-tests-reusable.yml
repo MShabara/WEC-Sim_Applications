@@ -59,7 +59,6 @@ jobs:
           path: './MoorDyn'
       - name: Copy MoorDyn Files
         if: (matrix.folder == 'Mooring' || matrix.folder == 'OWC')  
-
         run: |
             cp * ../WEC-Sim/source/functions/moorDyn
             ls ../WEC-Sim/source/functions/moorDyn
