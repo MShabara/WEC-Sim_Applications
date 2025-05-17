@@ -1,5 +1,4 @@
 classdef TestOWC < matlab.unittest.TestCase
-
     properties
         OriginalDefault
         testDir
@@ -14,13 +13,11 @@ classdef TestOWC < matlab.unittest.TestCase
             obj.testDir = fileparts(mfilename('fullpath'));
         end
     end
-
     methods (TestMethodSetup)
         function killPlots (~)
             set(0,'DefaultFigureVisible','off');
         end
     end
-
     methods(TestClassSetup)
         function captureVisibility(testCase)
             testCase.OriginalDefault = get(0,'DefaultFigureVisible');
@@ -44,13 +41,11 @@ classdef TestOWC < matlab.unittest.TestCase
             cd(testCase.testDir)
         end
     end
-
     methods(TestMethodTeardown)
         function returnHome(testCase)
             cd(testCase.testDir)
         end
     end
-
     methods(TestClassTeardown)
         function checkVisibilityRestored(testCase)
             set(0,'DefaultFigureVisible',testCase.OriginalDefault);
@@ -58,7 +53,6 @@ classdef TestOWC < matlab.unittest.TestCase
                 testCase.OriginalDefault);
         end
     end
-
     methods(Test)
         function testOWCOrifice(testCase)
             cd('OrificeModel')
