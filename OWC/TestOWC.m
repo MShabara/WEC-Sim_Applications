@@ -8,19 +8,16 @@ classdef TestOWC < matlab.unittest.TestCase
         h5DirFloating = ['FloatingOWC',filesep,'hydroData']
         h5NameFloating = 'floatingOWC.h5'
     end
-
     methods (Access = 'public')
         function obj = TestOWC
             obj.testDir = fileparts(mfilename('fullpath'));
         end
     end
-
     methods (TestMethodSetup)
         function killPlots (~)
             set(0,'DefaultFigureVisible','off');
         end
     end
-
     methods(TestClassSetup)
         function captureVisibility(testCase)
             testCase.OriginalDefault = get(0,'DefaultFigureVisible');
@@ -44,13 +41,11 @@ classdef TestOWC < matlab.unittest.TestCase
             cd(testCase.testDir)
         end
     end
-
     methods(TestMethodTeardown)
         function returnHome(testCase)
             cd(testCase.testDir)
         end
     end
-
     methods(TestClassTeardown)
         function checkVisibilityRestored(testCase)
             set(0,'DefaultFigureVisible',testCase.OriginalDefault);
